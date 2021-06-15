@@ -7,11 +7,32 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="UTF-8">
-        <!--<link rel="shortcut icon" type="image/png" href="img/favicon.png">-->
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
         
         <title>Chirag's 15 Puzzle</title>
     </head>
     <body>
+        <div class="selection-div">
+            <div class="heading">
+                <h1 class="heading-text selection-heading">
+                    Chirag's 15 Puzzle Game
+                </h1>
+            </div>
+            <form onsubmit="createGame()" class="form" id="gameForm">
+                <div class="form__group">
+                    <input type="number" min="2" id="row" placeholder="Enter Row Count" class="form__input" required autocomplete="off">
+                    <label for="row" class="form__label">Enter Row Count</label>
+                </div>
+                <div class="form__group">
+                    <input type="number" min="2" id="column" placeholder="Enter Column Count" class="form__input" required autocomplete="off">
+                    <label for="column" class="form__label">Enter Column Count</label>
+                </div>
+                <br>
+                <div class="form__group">
+                    <button class="label-div game-btn">Create Game &rarr;</button>
+                </div>
+            </form>
+        </div>
         <div class="game-zone">
             <div class="heading">
                 <h1 class="heading-text">
@@ -28,65 +49,66 @@
             </div>
             <div class="game-grid-div">
 
-                <div class="row row-1-of-4">
-                    <div class="col-1-of-4">
+                <!--<div class="row">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="0"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="1"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="2"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="3"></div>
                     </div>
+
                 </div>
 
-                <div class="row row-1-of-4">
-                    <div class="col-1-of-4">
+                <div class="row">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="4"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="5"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="6"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="7"></div>
                     </div>
                 </div>
 
-                <div class="row row-1-of-4">
-                    <div class="col-1-of-4">
+                <div class="row">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="8"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="9"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="10"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="11"></div>
                     </div>
                 </div>
 
-                <div class="row row-1-of-4">
-                    <div class="col-1-of-4">
+                <div class="row">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="12"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="13"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="14"></div>
                     </div>
-                    <div class="col-1-of-4">
+                    <div class="column">
                         <div class="game-card" onclick="clicked(this.id)" id="15"></div>
                     </div>
-                </div>
+                </div>-->
 
             </div>
 

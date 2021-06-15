@@ -24,10 +24,92 @@ $color-grey: #f2f2f2;
     box-sizing: border-box;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+::-webkit-input-placeholder {
+    color: rgba($color-primary-dark, .8) !important;
+}
+
 body {
     font-size: 10px;
     background-color: $color-primary-light;
     font-family: "bitwise";
+}
+
+.selection-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background-color: $color-primary-dark;
+    z-index: 1;
+}
+
+.selection-heading {
+    font-size: 4rem !important;
+}
+
+.form {
+    text-align: center;
+
+    &__group {
+        margin: 2rem;
+        display: inline-block;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-grey, .5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        display: block;
+        width: 20rem;
+        transition: all .3s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-primary-dark, .1);
+            border-bottom: 3px solid $color-secondary;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary;
+        }
+
+        &::-webkit-input-placeholder {  
+            color: $color-grey;
+        }
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 400;
+        display: block;
+        margin: .7rem 0 0 2rem;
+        transition: all .3s;
+        text-align: left;
+        color: $color-secondary;
+    }
+
+    &__input:placeholder-shown + &__label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4.1rem);
+    }
 }
 
 .game-zone {
@@ -36,10 +118,11 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 45rem;
-    height: 85vh;
+    height: auto;
     background-color: rgba($color-primary-dark, .8);
     box-shadow: 0rem 0rem 4rem rgba($color: #000000, $alpha: .4);
     border-radius: 1rem;
+    padding-bottom: 2rem;
 }
 
 .heading {
@@ -72,6 +155,9 @@ body {
 .game-btn {
     transition: all .2s;
     backface-visibility: hidden;
+    border: none;
+    margin: none;
+    font-family: "bitwise";
     &:hover {
         background-color: $color-secondary;
         color: $color-primary-dark;
@@ -85,20 +171,18 @@ body {
 }
 
 .game-grid-div {
-    margin: 3rem 10rem;
+    margin: 3rem;
 }
 
 .row {
     margin: 0 auto;
     display: flex;
-    justify-content: space-around;
-    &:not(:last-child) {
-        margin-bottom: 2rem;
-    }
+    justify-content: center;
 }
 
-.col-1-of-4 {
+.column {
     background-color: $color-primary-light;
+    margin: .2rem;
     height: auto;
     width: 4.5rem;
     &::before {

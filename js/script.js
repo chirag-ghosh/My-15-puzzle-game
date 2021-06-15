@@ -13,6 +13,32 @@ function showTime() {
 
 var timeInterval = setInterval("showTime()", 1000);
 
+function createGame() {
+    rows = document.getElementById("gameForm").elements["row"].value;
+    cols = document.getElementById("gameForm").elements["column"].value;
+    document.getElementsByClassName("selection-div")[0].style.opacity = "0";
+    document.getElementsByClassName("selection-div")[0].style.visibility = "hidden";
+
+    var gamespace = document.getElementsByClassName("game-grid-div")[0];
+    for(var i = 0 ; i < rows ; i++) {
+        var rowDiv = document.createElement("div");
+        rowDiv.className = "row";
+        for(var j = 0; j < cols; j++) {
+            var colDiv = document.createElement("div");
+            colDiv.className = "column";
+            var cardDiv = document.createElement("div");
+            cardDiv.className = "game-card";
+            cardDiv.id = i*cols+j;
+            //cardDiv.onclick = "clicked(this.id)";
+            cardDiv.setAttribute('onclick', 'clicked(this.id)');
+            colDiv.appendChild(cardDiv);
+            rowDiv.appendChild(colDiv);
+        }
+        gamespace.appendChild(rowDiv);
+    }
+    
+}
+
 function start() {
     for(var i = 0; i <rows*cols; i++) {
         var added = 0;
@@ -40,7 +66,7 @@ function start() {
 
 function updateView() {
     document.getElementById("move").innerHTML = moves;
-    for(var i = 0; i < 16; i++) {
+    for(var i = 0; i < rows*cols; i++) {
         document.getElementById(i).innerHTML = gridArr[i];
         document.getElementById(i).style.visibility = "visible";
         if(gridArr[i] == 0) {
@@ -64,42 +90,45 @@ function newGame() {
 }
 
 function clicked(clickedId) {
-    if(Math.floor(clickedId/cols) == Math.floor(blank/cols)) {
-        if(clickedId > blank) {
-            moves += clickedId-blank;
-            for(var i = blank; i < clickedId; i++) {
-                gridArr[i] = gridArr[i+1];
+    if(!isPaused) {
+        if(Math.floor(clickedId/cols) == Math.floor(blank/cols)) {
+            if(clickedId > blank) {
+                moves += clickedId-blank;
+                for(var i = blank; i < clickedId; i++) {
+                    gridArr[i] = gridArr[i+1];
+                }
+                gridArr[clickedId] = 0;
             }
-            gridArr[clickedId] = 0;
-        }
-        else {
-            moves += blank - clickedId;
-            for(var i = blank; i > clickedId; i--) {
-                gridArr[i] = gridArr[i-1];
+            else {
+                moves += blank - clickedId;
+                for(var i = blank; i > clickedId; i--) {
+                    gridArr[i] = gridArr[i-1];
+                }
+                gridArr[clickedId] = 0;
             }
-            gridArr[clickedId] = 0;
         }
+        if(clickedId%cols == blank%cols) {
+            var blankRow = Math.floor(blank/cols);
+            var clickRow = Math.floor(clickedId/cols);
+            var temp = clickedId%cols;
+            if(clickedId > blank) {
+                moves += clickRow - blankRow;
+                for(var i = blankRow; i < clickRow; i++) {
+                    gridArr[i*cols+temp] = gridArr[(i+1)*cols+temp];
+                }
+                gridArr[clickRow*cols+temp] = 0;
+            }
+            else {
+                moves += blankRow - clickRow;
+                for(var i = blankRow; i > clickRow; i--) {
+                    gridArr[i*cols+temp] = gridArr[(i-1)*cols+temp];
+                }
+                gridArr[clickRow*cols+temp] = 0;
+            }
+        }
+        updateView();
     }
-    if(clickedId%cols == blank%cols) {
-        var blankRow = Math.floor(blank/cols);
-        var clickRow = Math.floor(clickedId/cols);
-        var temp = clickedId%cols;
-        if(clickedId > blank) {
-            moves += clickRow - blankRow;
-            for(var i = blankRow; i < clickRow; i++) {
-                gridArr[i*cols+temp] = gridArr[(i+1)*cols+temp];
-            }
-            gridArr[clickRow*cols+temp] = 0;
-        }
-        else {
-            moves += blankRow - clickRow;
-            for(var i = blankRow; i > clickRow; i--) {
-                gridArr[i*cols+temp] = gridArr[(i-1)*cols+temp];
-            }
-            gridArr[clickRow*cols+temp] = 0;
-        }
-    }
-    updateView();
+    
 }
 
 function pause() {
