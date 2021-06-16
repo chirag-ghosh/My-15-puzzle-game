@@ -55,8 +55,21 @@ body {
     z-index: 1;
 }
 
+.win-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+}
+
 .selection-heading {
     font-size: 4rem !important;
+}
+
+.win-heading {
+    margin: 0 auto;
+    padding: 5rem;
 }
 
 .form {

@@ -2,7 +2,8 @@ var rows = 4, cols = 4;
 var gridArr = new Array(rows*cols);
 var moves = 0;
 var time = 0;
-var isPaused = true;
+var isPaused = false;
+var gameOver = false;
 var blank;
 
 function showTime() {
@@ -80,11 +81,38 @@ function updateView() {
             document.getElementById(i).style.backgroundColor = "#f96d00";
         }
     }
+    isOver();
+}
+
+function isOver() {
+    var temp = 0;
+    for(var i = 0 ; i < rows*cols-1 ; i++) {
+        if(gridArr[i] != (i+1)) {
+            temp = 1;
+            break;
+        }
+    }
+    if(temp == 0) {
+        isPaused = true;
+        gameOver = true;
+        document.getElementById("timewin").innerHTML = time++ +"s";
+        document.getElementById("movewin").innerHTML = moves;
+        document.getElementsByClassName("win-div")[0].style.visibility = "visible";
+        document.getElementsByClassName("win-div")[0].style.opacity = "1";
+    }
 }
 
 
 function newGame() {
+    if(gameOver == true) {
+        document.getElementsByClassName("win-div")[0].style.visibility = "hidden";
+        document.getElementsByClassName("win-div")[0].style.opacity = "0";
+        gameOver = false;
+        isPaused = false;
+    } 
     start();
+    // uncomment the below line to see the winning section.
+    //gridArr = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,0,15);
     updateView();
     document.getElementById("time").innerHTML = time+"s";
 }
@@ -132,12 +160,14 @@ function clicked(clickedId) {
 }
 
 function pause() {
-    if(isPaused) {
-        isPaused = false;
-        document.getElementById("pause").innerHTML = "Pause";
-    }
-    else {
-        isPaused = true;
-        document.getElementById("pause").innerHTML = "Resume";
+    if(gameOver == false) {
+        if(isPaused) {
+            isPaused = false;
+            document.getElementById("pause").innerHTML = "Pause";
+        }
+        else {
+            isPaused = true;
+            document.getElementById("pause").innerHTML = "Resume";
+        }
     }
 }

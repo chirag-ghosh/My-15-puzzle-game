@@ -18,7 +18,7 @@
                     Chirag's 15 Puzzle Game
                 </h1>
             </div>
-            <form onsubmit="createGame()" class="form" id="gameForm">
+            <form onsubmit="return false" class="form" id="gameForm">
                 <div class="form__group">
                     <input type="number" min="2" id="row" placeholder="Enter Row Count" class="form__input" required autocomplete="off">
                     <label for="row" class="form__label">Enter Row Count</label>
@@ -29,9 +29,32 @@
                 </div>
                 <br>
                 <div class="form__group">
-                    <button class="label-div game-btn">Create Game &rarr;</button>
+                    <button class="label-div game-btn" onclick="createGame()">Create Game &rarr;</button>
                 </div>
             </form>
+        </div>
+        <div class="selection-div win-div">
+            <div class="status-bar">
+                <div class="label-div">
+                    <span class="status-label">Time :&nbsp;</span><span class="status-data" id="timewin">0s</span>
+                </div>
+                <div class="label-div">
+                    <span class="status-label">Moves :&nbsp;</span><span class="status-data" id="movewin">0</span>
+                </div>
+            </div>
+            <div class="heading win-heading">
+                <h1 class="heading-text selection-heading">
+                    You Won!
+                </h1>
+            </div>
+            <div class="status-bar">
+                <div class="label-div game-btn" onclick="newMode();">
+                    New Mode
+                </div>
+                <div class="label-div game-btn" onclick="newGame();">
+                    New Game
+                </div>
+            </div>
         </div>
         <div class="game-zone">
             <div class="heading">
