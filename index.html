@@ -56,94 +56,154 @@
                 </div>
             </div>
         </div>
-        <div class="game-zone">
-            <div class="heading">
-                <h1 class="heading-text">
-                    Chirag's 15 Puzzle Game
-                </h1>
+        <div class="mainpage-div">
+            <div class="game-zone sidebar">
+                <div class="heading">
+                    <h1 class="heading-text">
+                        Sidebar
+                    </h1>
+                </div>
+                <div class="label-div game-btn game-btn--sidebar" onclick="newMode();">
+                    New Mode
+                </div>
+                <div class="label-div game-btn game-btn--sidebar" onclick="howToPlay();">
+                    How to Play
+                </div>
+                <div class="label-div game-btn game-btn--sidebar" onclick="aboutMe();">
+                    About Me
+                </div>
             </div>
-            <div class="status-bar">
-                <div class="label-div">
-                    <span class="status-label">Time :&nbsp;</span><span class="status-data" id="time">0s</span>
+            <div class="game-zone mainbar">
+                <div class="heading">
+                    <h1 class="heading-text">
+                        Chirag's 15 Puzzle Game
+                    </h1>
                 </div>
-                <div class="label-div">
-                    <span class="status-label">Moves :&nbsp;</span><span class="status-data" id="move">0</span>
+                <div class="status-bar">
+                    <div class="label-div">
+                        <span class="status-label">Time :&nbsp;</span><span class="status-data" id="time">0s</span>
+                    </div>
+                    <div class="label-div">
+                        <span class="status-label">Moves :&nbsp;</span><span class="status-data" id="move">0</span>
+                    </div>
+                </div>
+                <div class="game-grid-div">
+    
+                    <!--<div class="row">
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="0"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="1"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="2"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="3"></div>
+                        </div>
+    
+                    </div>
+    
+                    <div class="row">
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="4"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="5"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="6"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="7"></div>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="8"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="9"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="10"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="11"></div>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="12"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="13"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="14"></div>
+                        </div>
+                        <div class="column">
+                            <div class="game-card" onclick="clicked(this.id)" id="15"></div>
+                        </div>
+                    </div>-->
+    
+                </div>
+    
+                <div class="status-bar">
+                    <div class="label-div game-btn" onclick="newGame();">
+                        New Game
+                    </div>
+                    <div class="label-div game-btn" onclick="pause()" id="pause">
+                        Pause
+                    </div>
                 </div>
             </div>
-            <div class="game-grid-div">
-
-                <!--<div class="row">
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="0"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="1"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="2"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="3"></div>
-                    </div>
-
+            <div class="game-zone sidebar">
+                <div class="heading">
+                    <h1 class="heading-text">
+                        Leaderboard
+                    </h1>
                 </div>
-
-                <div class="row">
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="4"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="5"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="6"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="7"></div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="8"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="9"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="10"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="11"></div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="12"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="13"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="14"></div>
-                    </div>
-                    <div class="column">
-                        <div class="game-card" onclick="clicked(this.id)" id="15"></div>
-                    </div>
-                </div>-->
-
-            </div>
-
-            <div class="status-bar">
-                <div class="label-div game-btn" onclick="newGame();">
-                    New Game
-                </div>
-                <div class="label-div game-btn" onclick="pause()" id="pause">
-                    Pause
-                </div>
+                <div class="leaderboard" id="leaderboard"></div>
             </div>
         </div>
+
+        <div id="aboutMe" class="popup">
+            <div class="popup-content">
+                <div class="heading">
+                    <h1 class="heading-text">
+                        About Me
+                    </h1>
+                </div>
+                <div class="author">
+                    <figure class="author__shape">
+                        <img src="img/myimg.jpeg" alt="Person on a tour" class="author__img">
+                    </figure>
+                    <div class="author__text">
+                        <p>I am Chirag ghosh. A first-year UG student in the branch of Computer Science and Engineering.</p>
+                    </div>
+                </div>
+                <a href="#" onclick="aboutMe()" class="close-popup"><img src="img/exit.png" alt="Exit" class="close-popup-img"></a>
+            </div>
+       </div>
+
+       <div id="howToPlay" class="popup">
+        <div class="popup-content">
+            <div class="heading">
+                <h1 class="heading-text">
+                    How to play
+                </h1>
+            </div>
+            <div class="author__text">
+                <p>Move tiles in grid to order them in ascending order. To move a tile you can click on it</p>
+            </div>
+            <a href="#" onclick="howToPlay()" class="close-popup"><img src="img/exit.png" alt="Exit" class="close-popup-img"></a>
+        </div>
+   </div>
+        
     </body>
     <script type="text/javascript" src="js/script.js"></script>
 </html>

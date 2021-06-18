@@ -87,24 +87,33 @@ body {
     visibility: hidden;
     transform: translateY(-4.1rem); }
 
+.mainpage-div {
+  display: flex;
+  align-items: stretch;
+  height: 100vh; }
+
 .game-zone {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 45rem;
   height: auto;
   background-color: rgba(34, 40, 49, 0.8);
   box-shadow: 0rem 0rem 4rem rgba(0, 0, 0, 0.4);
   border-radius: 1rem;
-  padding-bottom: 2rem; }
+  padding-bottom: 2rem;
+  margin: 2rem; }
+
+.sidebar {
+  flex: 1 2 auto;
+  padding: 0 2rem; }
+
+.mainbar {
+  flex: 2 0 auto; }
 
 .heading {
   text-align: center;
   color: #f96d00; }
 
 .heading-text {
-  padding: 2rem 0;
+  padding: 2rem 0 4rem 0;
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: .4rem; }
@@ -121,6 +130,9 @@ body {
   border-radius: .5rem;
   color: rgba(242, 242, 242, 0.7);
   box-shadow: 0rem 0rem 3rem rgba(0, 0, 0, 0.2); }
+  .label-div--best {
+    font-size: 1.2rem;
+    margin-bottom: 1rem; }
 
 .game-btn {
   transition: all .2s;
@@ -136,6 +148,10 @@ body {
     background-color: #f96d00;
     color: #222831;
     transform: scale(105%); }
+  .game-btn--sidebar {
+    text-align: center;
+    width: fit-content;
+    margin: 4rem auto; }
 
 .game-grid-div {
   margin: 3rem; }
@@ -172,4 +188,71 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.3rem;
+  visibility: hidden; }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 2; }
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vh;
+  padding: 1rem 2rem;
+  background: #393e46;
+  opacity: .95;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3); }
+
+.popup-content p {
+  padding: 1rem;
+  font-size: 2rem;
+  color: rgba(242, 242, 242, 0.75); }
+
+.popup a.close-popup {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  color: #f96d00;
+  text-decoration: none; }
+
+.popup:target {
+  display: block; }
+
+.close-popup-img {
+  height: 2rem; }
+
+.author {
+  width: 75%;
+  margin: 0 auto;
+  padding: 3rem;
+  padding-left: 6rem;
+  font-size: 1.6rem; }
+  .author__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem);
+    position: relative;
+    overflow: hidden; }
+  .author__img {
+    height: 100%;
+    transform: translateX(-1rem) scale(1.5); }
+  .author__text {
+    line-height: 3.5rem; }
+
+#aboutMe, #howToPlay {
+  opacity: 0;
   visibility: hidden; }
