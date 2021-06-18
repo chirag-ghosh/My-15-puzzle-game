@@ -232,6 +232,10 @@ function howToPlay() {
     }
 }
 
+function sourceCode() {
+    window.open("https://github.com/chirag828049/My-15-puzzle-game", "_blank");
+}
+
 function storeBest() {
     localStorage.clear();
     localStorage.setItem("count", bestGameCount);

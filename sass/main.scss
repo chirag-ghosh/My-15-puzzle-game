@@ -85,7 +85,7 @@ body {
         font-family: inherit;
         color: inherit;
         padding: 1.5rem 2rem;
-        border-radius: 2px;
+        border-radius: .5rem;
         background-color: rgba($color-grey, .5);
         border: none;
         border-bottom: 3px solid transparent;
@@ -177,8 +177,8 @@ body {
     box-shadow: 0rem 0rem 3rem rgba($color: #000000, $alpha: .2);
 
     &--best {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
     }
 }
 
@@ -264,7 +264,7 @@ body {
     left:50%;
     transform:translate(-50%,-50%);
     width:70vw;
-    height: 70vh;
+    height: auto;
     padding:1rem 2rem;
     background:$color-primary-light;
     opacity: .95;
@@ -297,8 +297,7 @@ body {
 .author {
     width: 75%;
     margin: 0 auto;
-    padding: 3rem;
-    padding-left: 6rem;
+    padding: 3rem 3rem 5rem 6rem;
     font-size: 1.6rem;
 
 
@@ -328,4 +327,14 @@ body {
 #aboutMe, #howToPlay {
     opacity: 0;
     visibility: hidden;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 2rem;
+}
+
+.link-icon {
+    height: 2rem;
 }
