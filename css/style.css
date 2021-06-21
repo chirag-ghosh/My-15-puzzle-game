@@ -21,7 +21,7 @@ input[type=number] {
   color: rgba(34, 40, 49, 0.8) !important; }
 
 body {
-  font-size: 10px;
+  font-size: 0.7vw;
   background-color: #393e46;
   font-family: "bitwise"; }
 
@@ -117,6 +117,12 @@ body {
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: .4rem; }
+
+.up {
+  display: none; }
+
+.down {
+  display: none; }
 
 .status-bar {
   display: flex;
@@ -263,3 +269,59 @@ body {
 
 .link-icon {
   height: 2rem; }
+
+@media only screen and (max-width: 600px) {
+  .mainpage-div {
+    flex-direction: column;
+    align-items: stretch; }
+  .game-zone {
+    width: 80vw;
+    margin: 1rem 10vw; }
+  .heading-text {
+    padding: 2rem auto;
+    font-size: 1.6rem; }
+  .selection-heading {
+    font-size: 2rem !important; }
+  .form__group {
+    margin: 1rem; }
+  .form__input {
+    width: 15rem;
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem; }
+  .down, .up {
+    height: 1.5rem; }
+  .down {
+    display: inline-block; }
+  .game-btn--sidebar {
+    display: none; }
+  .label-div {
+    font-size: 1rem;
+    padding: .6rem 1rem; }
+  .game-card {
+    font-size: 1rem; }
+  .popup-content p {
+    font-size: 1rem;
+    padding: 1rem 0; }
+  .author {
+    padding: 0rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .author__shape {
+      float: none;
+      width: 8rem;
+      height: 8rem;
+      margin: 0 auto;
+      transform: translateX(0); }
+    .author__text {
+      line-height: 2rem; }
+  .popup a.close-popup {
+    top: 1.5rem;
+    right: 1.5rem; }
+  .close-popup-img {
+    height: 1rem; }
+  .footer-links {
+    padding: 1rem 0; }
+  .link-icon {
+    height: 1.5rem; } }

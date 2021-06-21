@@ -6,6 +6,7 @@ var isPaused = true;
 var gameOver = false;
 var aboutMeShown = false;
 var howToShown = false;
+var menuShown = false;
 var blank;
 var bestGameMove = new Array(5);
 var bestGameTime = new Array(5);
@@ -290,5 +291,24 @@ function displayBest() {
         status.innerHTML = (i+1)+". Moves : "+bestGameMove[i]+" Time : "+bestGameTime[i]+"s";
         label.appendChild(status);
         leaderboard.appendChild(label);
+    }
+}
+
+function menuToggle() {
+    if(menuShown) {
+        menuShown = false;
+        for(var i = 0; i < 4; i++) {
+            document.getElementsByClassName("game-btn--sidebar")[i].style.display = "none";
+        }
+        document.getElementsByClassName("up")[0].style.display = "none";
+        document.getElementsByClassName("down")[0].style.display = "inline-block";
+    }
+    else {
+        menuShown = true;
+        for(var i = 0; i < 4; i++) {
+            document.getElementsByClassName("game-btn--sidebar")[i].style.display = "block";
+        }
+        document.getElementsByClassName("up")[0].style.display = "inline-block";
+        document.getElementsByClassName("down")[0].style.display = "none";
     }
 }
