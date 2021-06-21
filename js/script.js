@@ -49,7 +49,7 @@ function createGame() {
 }
 
 function start() {
-    for(var i = 0; i <rows*cols; i++) {
+    /*for(var i = 0; i <rows*cols; i++) {
         var added = 0;
         while(added == 0) {
             var temp = Math.floor(Math.random()*rows*cols);
@@ -65,7 +65,14 @@ function start() {
                 added = 1;
             }
         }
+    }*/
+    for(var i = 0; i < rows*cols; i++) {
+        gridArr[i] = i+1;
     }
+    blank = rows*cols-1;
+    gridArr[blank] = 0;
+    console.log(gridArr);
+    shuffle();
     moves = 0;
     time = 0;
     if(isPaused) {
@@ -74,6 +81,29 @@ function start() {
     }
     timeInterval;
     console.log(gridArr);
+}
+
+function shuffle() {
+    isPaused = false;
+    gameOver = true;
+    for(var shuffleCount = 1; shuffleCount <= 40; shuffleCount++) {
+        var temp = Math.floor(Math.random()*2);
+        if(temp == 0) {
+            var clickShuffle = Math.floor(blank/4)*cols + Math.floor(Math.random()*cols);
+            clicked(clickShuffle);
+        }
+        else {
+            var clickShuffle = (blank%4) + Math.floor(Math.random()*rows)*cols;
+            clicked(clickShuffle);
+        }
+        for(var i = 0; i < rows*cols; i++) {
+            if(gridArr[i] == 0) {
+                blank = i;
+            }
+        }
+    }
+    isPaused = true;
+    gameOver = false;
 }
 
 function updateView() {
@@ -174,7 +204,9 @@ function clicked(clickedId) {
                 gridArr[clickRow*cols+temp] = 0;
             }
         }
-        updateView();
+        if(!gameOver) {
+            updateView();
+        }
     }
     
 }
@@ -193,6 +225,12 @@ function pause() {
 }
 
 function newMode() {
+    if(gameOver == true) {
+        document.getElementsByClassName("win-div")[0].style.visibility = "hidden";
+        document.getElementsByClassName("win-div")[0].style.opacity = "0";
+        gameOver = false;
+        isPaused = false;
+    } 
     document.getElementsByClassName("selection-div")[0].style.opacity = "1";
     document.getElementsByClassName("selection-div")[0].style.visibility = "visible";
     var gamespace = document.getElementsByClassName("game-grid-div")[0];
