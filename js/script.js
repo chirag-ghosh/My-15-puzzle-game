@@ -89,11 +89,11 @@ function shuffle() {
     for(var shuffleCount = 1; shuffleCount <= 40; shuffleCount++) {
         var temp = Math.floor(Math.random()*2);
         if(temp == 0) {
-            var clickShuffle = Math.floor(blank/4)*cols + Math.floor(Math.random()*cols);
+            var clickShuffle = Math.floor(blank/cols)*cols + Math.floor(Math.random()*cols);
             clicked(clickShuffle);
         }
         else {
-            var clickShuffle = (blank%4) + Math.floor(Math.random()*rows)*cols;
+            var clickShuffle = (blank%cols) + Math.floor(Math.random()*rows)*cols;
             clicked(clickShuffle);
         }
         for(var i = 0; i < rows*cols; i++) {
