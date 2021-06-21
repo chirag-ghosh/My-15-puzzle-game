@@ -22,6 +22,7 @@ $color-grey: #f2f2f2;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 1vw;
 }
 
 input::-webkit-outer-spin-button,
@@ -39,7 +40,6 @@ input[type=number] {
 }
 
 body {
-    font-size: 0.7vw;
     background-color: $color-primary-light;
     font-family: "bitwise";
 }
@@ -350,6 +350,10 @@ body {
 
 
 @media only screen and (max-width: 600px) {
+
+    * {
+        font-size: 16px;
+    }
 
     .mainpage-div {
         flex-direction: column;

@@ -7,7 +7,8 @@ primary-light : #3f3f3f
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-size: 1vw; }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -21,7 +22,6 @@ input[type=number] {
   color: rgba(34, 40, 49, 0.8) !important; }
 
 body {
-  font-size: 0.7vw;
   background-color: #393e46;
   font-family: "bitwise"; }
 
@@ -271,6 +271,8 @@ body {
   height: 2rem; }
 
 @media only screen and (max-width: 600px) {
+  * {
+    font-size: 16px; }
   .mainpage-div {
     flex-direction: column;
     align-items: stretch; }
