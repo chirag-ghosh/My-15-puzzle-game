@@ -398,6 +398,10 @@ body {
         display: none;
     }
 
+    #clearStats {
+        display: block;
+    }
+
     .label-div {
         font-size: 1rem;
         padding: .6rem 1rem;
@@ -455,4 +459,24 @@ body {
     }
 
 
+}
+
+@keyframes fadein {
+    100% {
+        opacity: 1;
+    }
+    0% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
 }

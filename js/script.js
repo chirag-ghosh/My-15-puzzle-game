@@ -23,7 +23,9 @@ var timeInterval = setInterval("showTime()", 1000);
 function createGame() {
     rows = document.getElementById("gameForm").elements["row"].value;
     cols = document.getElementById("gameForm").elements["column"].value;
-    document.getElementsByClassName("selection-div")[0].style.opacity = "0";
+    //document.getElementsByClassName("selection-div")[0].style.opacity = "0";
+    document.getElementsByClassName("form")[0].style.visibility = "hidden";
+    document.getElementsByClassName("selection-div")[0].style.animation = "fadeout .5s ease-out 1";
     document.getElementsByClassName("selection-div")[0].style.visibility = "hidden";
 
     var gamespace = document.getElementsByClassName("game-grid-div")[0];
@@ -139,6 +141,7 @@ function isOver() {
         document.getElementById("timewin").innerHTML = time++ +"s";
         document.getElementById("movewin").innerHTML = moves;
         document.getElementsByClassName("win-div")[0].style.visibility = "visible";
+        document.getElementsByClassName("win-div")[0].style.animation = "fadein .5s ease-out 1";
         document.getElementsByClassName("win-div")[0].style.opacity = "1";
         if(bestGameCount <10) {
             bestGameMove[bestGameCount] = moves;
@@ -153,8 +156,9 @@ function isOver() {
 
 function newGame() {
     if(gameOver == true) {
-        document.getElementsByClassName("win-div")[0].style.visibility = "hidden";
+        document.getElementsByClassName("win-div")[0].style.animation = "fadeout .5s ease-out 1";
         document.getElementsByClassName("win-div")[0].style.opacity = "0";
+        document.getElementsByClassName("win-div")[0].style.visibility = "hidden";
         gameOver = false;
         isPaused = false;
     } 
@@ -231,8 +235,10 @@ function newMode() {
         gameOver = false;
         isPaused = false;
     } 
-    document.getElementsByClassName("selection-div")[0].style.opacity = "1";
+    //document.getElementsByClassName("selection-div")[0].style.opacity = "1";
     document.getElementsByClassName("selection-div")[0].style.visibility = "visible";
+    document.getElementsByClassName("selection-div")[0].style.animation = "fadein .5s ease-out 1";
+    document.getElementsByClassName("form")[0].style.visibility = "visible";
     var gamespace = document.getElementsByClassName("game-grid-div")[0];
     for(var i = 0 ; i < rows ; i++) {
         gamespace.removeChild(gamespace.firstElementChild);
@@ -248,11 +254,13 @@ function newMode() {
 function aboutMe() {
     if(aboutMeShown) {
         aboutMeShown = false;
+        document.getElementById("aboutMe").style.animation = "fadeout .5s ease-out 1";
         document.getElementById("aboutMe").style.opacity = "0";
         document.getElementById("aboutMe").style.visibility = "hidden";
     }
     else {
         aboutMeShown = true;
+        document.getElementById("aboutMe").style.animation = "fadein .5s ease-out 1";
         document.getElementById("aboutMe").style.opacity = "1";
         document.getElementById("aboutMe").style.visibility = "visible";
     }
@@ -261,11 +269,13 @@ function aboutMe() {
 function howToPlay() {
     if(howToShown) {
         howToShown = false;
+        document.getElementById("howToPlay").style.animation = "fadeout .5s ease-out 1";
         document.getElementById("howToPlay").style.opacity = "0";
         document.getElementById("howToPlay").style.visibility = "hidden";
     }
     else {
         howToShown = true;
+        document.getElementById("howToPlay").style.animation = "fadein .5s ease-out 1";
         document.getElementById("howToPlay").style.opacity = "1";
         document.getElementById("howToPlay").style.visibility = "visible";
     }
@@ -330,6 +340,15 @@ function displayBest() {
         label.appendChild(status);
         leaderboard.appendChild(label);
     }
+}
+
+function clearStats() {
+    var leaderboard = document.getElementById("leaderboard");
+    while(leaderboard.firstChild) {
+        leaderboard.removeChild(leaderboard.firstChild);
+    }
+    localStorage.clear();
+    bestGameCount = 0;
 }
 
 function menuToggle() {
